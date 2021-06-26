@@ -18,8 +18,15 @@ from django.contrib import admin
 from django.urls import include, path
 from snippets import views as snippets_views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', snippets_views.list_snippets, name='list_snippets'),
+
+    ## add 
+    path('snippets/snippet/add/', snippets_views.add_snippet, name='add_snippet'),
+
+    ## edit
+    path('snippets/<int:pk>/edit/',
+         snippets_views.edit_snippet, name='edit_snippet'),
 ]
+
