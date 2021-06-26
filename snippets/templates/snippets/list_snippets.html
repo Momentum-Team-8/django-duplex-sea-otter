@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="snippet-list">
+    {% for snippet in snippets %}
+        <div class="snippet">
+        <a href="{% url 'add_snippet' %}">Add New Snippet</a>
+        <a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
+        <a href={% url 'delete_snippets' pk=snippet.pk%}>Delete</a>
+        </div>
+    {% endfor %}
+</section>
+{% endblock content %}
+
+
+
+
+<a href={% url 'add_snippet' %}>Add a new Snippet</a> 
