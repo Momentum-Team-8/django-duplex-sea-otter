@@ -2,6 +2,12 @@ from snippets.forms import SnippetForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Snippet
 
+
+def list_snippets(request):
+    snippets = Snippet.objects.all()
+    return render(request,  "snippets/list_snippets.html",
+                {"snippets": snippets})
+
 # Create your views here.
 def add_snippet(request):
     if request.method == 'GET':
