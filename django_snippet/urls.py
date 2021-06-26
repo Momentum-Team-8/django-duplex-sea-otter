@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include,path
+from django.urls import include, path
+from snippets import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('collection/<int:pk>/delete',
+         views.delete_snippets, name='delete_snippets'),
 ]
-
-
-
