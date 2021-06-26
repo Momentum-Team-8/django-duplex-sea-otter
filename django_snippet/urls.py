@@ -28,5 +28,7 @@ urlpatterns = [
     ## edit
     path('snippets/<int:pk>/edit/',
          snippets_views.edit_snippet, name='edit_snippet'),
+  
+   path('collection/<int:pk>/delete',
+         views.delete_snippets, name='delete_snippets'),
 ]
-
