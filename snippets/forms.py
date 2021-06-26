@@ -8,3 +8,4 @@ class SnippetForm(forms.ModelForm):
         model = Snippet
         fields = ["title", "language", "author",
                   "description"]
+
