@@ -2,12 +2,19 @@
 
 {% block content %}
 <section class="snippet-list">
+    <a href="{% url 'add_snippet' %}">Add New Snippet</a>
     {% for snippet in snippets %}
-        <div class="snippet">
-        <a href="{% url 'add_snippet' %}">Add New Snippet</a>
+    <div class="snippet">
+        <p>{{snippet.title}}</p>
+        <p>{{snippet.author}}</p>
+        <p>{{snippet.language}}</p>
+        <p>{{snippet.description}}</p>
+        <p>{{snippet.created_at}}</p>
+
+        
         <a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
         <a href={% url 'delete_snippets' pk=snippet.pk%}>Delete</a>
-        </div>
+    </div>
     {% endfor %}
 </section>
 {% endblock content %}
