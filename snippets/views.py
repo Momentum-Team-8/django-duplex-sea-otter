@@ -24,7 +24,9 @@ def add_snippet(request):
     else:
         form = SnippetForm(data=request.POST)
         if form.is_valid():
-            ### redirect to the book_list 
+            snippet = form.save(commit = False)
+            snippet.save()
+            ### redirect to the list_snippets
             return redirect(to='list_snippets')
     return render(request, "snippets/add_snippet.html", {"form": form})
 
