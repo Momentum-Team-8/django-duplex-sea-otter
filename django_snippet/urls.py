@@ -41,4 +41,7 @@ urlpatterns = [
   
    path('collection/<int:pk>/delete',
          snippets_views.delete_snippets, name='delete_snippets'),
+
+    path('search_bar/', snippets_views.search_bar, name='search_bar'),
+
 ]+ static(settings.STATIC_URL, docuement_root=settings.STATIC_ROOT )

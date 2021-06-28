@@ -11,6 +11,11 @@ def delete_snippets(request, pk):
     return render(request, "snippets/delete_snippets.html",
                   {"snippet": snippet})
 
+def search_bar(request):
+    if request.method == 'GET':
+        search = request.GET.get('search')
+        post = Snippet.objects.filter(title__icontains=search)
+        return render(request, 'snippets/search_bar.html', {'post': post})
 
 def list_snippets(request):
     snippets = Snippet.objects.all()
