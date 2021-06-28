@@ -2,17 +2,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snippets</title>
-</head>
-<body>
-  <h1>All Snippets</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    </script>
+    <script>hljs.highlightAll();</script>
 
-  <div>
-    {% block content %}
-    {% endblock %}
-  </div>
-</body>
+    <title>Snippets</title>
+  </head>
+
+  <body>
+    <h1>All Snippets</h1>
+
+    <div>{% block content %} {% endblock %}</div>
+  </body>
 </html>
