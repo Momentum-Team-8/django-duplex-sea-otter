@@ -16,14 +16,24 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
+
+
 from snippets import views as snippets_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', snippets_views.list_snippets, name='list_snippets'),
-
+    path("accounts/", include("registration.backends.simple.urls")),
     ## add 
     path('snippets/snippet/add/', snippets_views.add_snippet, name='add_snippet'),
+    path("snippets/<int:pk>", snippets_views.show_snippet, name="show_snippet"),
+    path(
+        "snippets/<int:snippet_pk>/favorite",
+        snippets_views.toggle_favorite,
+        name="toggle_favorite",
+    ),
 
     ## edit
     path('snippets/<int:pk>/edit/',
@@ -31,4 +41,4 @@ urlpatterns = [
   
    path('collection/<int:pk>/delete',
          snippets_views.delete_snippets, name='delete_snippets'),
-]
+]+ static(settings.STATIC_URL, docuement_root=settings.STATIC_ROOT )
