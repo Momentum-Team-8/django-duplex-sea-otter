@@ -5,10 +5,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- custom js -->
+  <script src={% static 'main.js' %}  defer></script>
+  
   <title>Snippets</title>
 </head>
 <body>
   <h1>All Snippets</h1>
+  <nav>
+    <div>
+      {% if user.is_authenticated %}
+      <p>Hello, {{ user.username }}!</p>
+      <a href="{% url 'auth_logout' %}">Logout</a>
+      {% else %}
+      <a href="{% url 'auth_login' %}">Login</a>
+      {% endif %}
+    </div>
+  </nav>
 
   <div>
     {% block content %}

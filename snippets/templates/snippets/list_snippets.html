@@ -5,7 +5,7 @@
     <a href="{% url 'add_snippet' %}">Add New Snippet</a>
     {% for snippet in snippets %}
     <div class="snippet">
-        <p>{{snippet.title}}</p>
+        <p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{snippet.title}}</a></p>
         <p>{{snippet.author}}</p>
         <p>{{snippet.language}}</p>
         <p>{{snippet.description}}</p>

@@ -49,3 +49,24 @@ def edit_snippet(request, pk):
         "form": form,
         "snippet": snippet
     })
+
+def show_snippet(request, pk):
+    snippet = get_object_or_404(Snippet, pk=pk)
+    return render(request, "snippets/show_snippet.html", {"snippet": snippet})
+
+
+## favorites
+# This view should be login_required
+def toggle_favorite(request, snippet_pk):
+    # get the user
+    user = request.user
+    # get the snippet
+    snippet = get_object_or_404(Snippet, pk=snippet_pk)
+    # check to see if snippet is already favorited by user
+    # if it is, remove favorite
+    if user.fav_snippets.filter(id=snippet.id).exists():
+        snippet.favorited_by.remove(user)
+    else:
+        snippet.favorited_by.add(user)
+
+    return redirect("show_snippet", pk=snippet_pk)
