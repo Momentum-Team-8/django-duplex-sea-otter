@@ -8,9 +8,11 @@
         <p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{snippet.title}}</a></p>
         <p>{{snippet.author}}</p>
         <p>{{snippet.language}}</p>
-        <p>{{snippet.description}}</p>
+        <pre><code class="language-html">
+        {{snippet.description}}
+        </code></pre>
         <p>{{snippet.created_at}}</p>
-
+       
         
         <a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
         <a href={% url 'delete_snippets' pk=snippet.pk%}>Delete</a>
