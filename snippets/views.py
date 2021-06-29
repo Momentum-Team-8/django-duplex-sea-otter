@@ -1,6 +1,7 @@
+import snippets
 from snippets.forms import SnippetForm
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Snippet
+from .models import Snippet,Category
 
 def delete_snippets(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
@@ -80,3 +81,16 @@ def list_favorites(request):
     return render(request, "snippets/favList_snippet.html",
     {"favos": favos})
 
+## category
+def show_categ(request, slug):
+    categ = get_object_or_404(Category, slug=slug)
+    #### important!!! 
+    snippets = categ.snippets.all()
+    return render(request, "snippets/show_categ.html", {"categ": categ, "snippets": snippets})
+
+
+### category page
+def list_category(request): 
+    all_categories = Category.objects.all()
+    return render(request, "snippets/all_categories.html",
+    {"all_categories": all_categories})

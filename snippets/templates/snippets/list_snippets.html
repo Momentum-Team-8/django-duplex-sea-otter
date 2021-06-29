@@ -6,6 +6,9 @@
     <br>
     <br>
     <a href="{% url 'list_favorites' %}">Your Favorite Snippets</a>
+    <br>
+    <br>
+    <a href="{% url 'list_categories' %}">Categories</a>
 
     {% for snippet in snippets %}
     <div class="snippet">
@@ -19,6 +22,11 @@
        
         <a href={% url 'edit_snippet' pk=snippet.pk %}>Edit</a>
         <a href={% url 'delete_snippets' pk=snippet.pk %}>Delete</a>
+    </div>
+    <div>
+        {% for each in snippet.category.all %}
+            <a href="{% url 'show_categ' slug=each.slug %}">{{each.category_name}}</a>
+            {% endfor %}
     </div>
     {% endfor %}
 </section>
