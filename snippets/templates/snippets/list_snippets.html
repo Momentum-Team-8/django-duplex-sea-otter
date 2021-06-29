@@ -3,6 +3,10 @@
 {% block content %}
 <section class="snippet-list">
     <a href="{% url 'add_snippet' %}">Add New Snippet</a>
+    <br>
+    <br>
+    <a href="{% url 'list_favorites' %}">Your Favorite Snippets</a>
+
     {% for snippet in snippets %}
     <div class="snippet">
         <p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{snippet.title}}</a></p>
@@ -13,9 +17,8 @@
         </code></pre>
         <p>{{snippet.created_at}}</p>
        
-        
-        <a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
-        <a href={% url 'delete_snippets' pk=snippet.pk%}>Delete</a>
+        <a href={% url 'edit_snippet' pk=snippet.pk %}>Edit</a>
+        <a href={% url 'delete_snippets' pk=snippet.pk %}>Delete</a>
     </div>
     {% endfor %}
 </section>

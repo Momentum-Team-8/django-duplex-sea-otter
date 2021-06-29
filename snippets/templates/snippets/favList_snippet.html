@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="snippet-list">
+    <div class="back-button">
+        <a href={% url "list_snippets" %}>Back To All Snippets</a>
+    </div>
+    
+    <h1>Your Favorite Snippets</h1>
+    {% for favo in favos %}
+    <div class="snippet">
+        <p><a href="{% url 'show_snippet' favo.id %}">{{favo.title}}</a></p>
+    </div>
+    {% endfor %}
+</section>
+
+
+{% endblock content %}
