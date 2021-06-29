@@ -30,7 +30,7 @@ def add_snippet(request):
     else:
         form = SnippetForm(data=request.POST)
         if form.is_valid():
-            snippet = form.save(commit = False)
+            snippet = form.save()
             snippet.save()
             ### redirect to the list_snippets
             return redirect(to='list_snippets')
