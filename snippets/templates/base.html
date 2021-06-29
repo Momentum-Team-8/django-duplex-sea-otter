@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
     </script>
     <script>hljs.highlightAll();</script>
     <script src={% static 'main.js' %}  defer></script>
-  
+
   <title>Snippets</title>
 </head>
 <body>
@@ -26,8 +27,21 @@
       {% endif %}
     </div>
   </nav>
+<!-- Sidebar starts -->
 
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="{% url 'list_snippets' %}">Home</a>
+    <a href="{% url 'list_categories' %}">Categories</a>
+    <a href="{% url 'list_favorites' %}">Favorites</a>
+    <a href="#">Profile</a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">☰ SnippetWorks</button>  
+  </div>
 
+  <!-- Sidebar end  -->
     <div>{% block content %} {% endblock %}</div>
   </body>
 </html>
