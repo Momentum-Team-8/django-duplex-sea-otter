@@ -35,6 +35,8 @@ urlpatterns = [
         snippets_views.toggle_favorite,
         name="toggle_favorite",
     ),
+    path("categ/<slug:slug>",snippets_views.show_categ, name="show_categ"),
+    path('categories/', snippets_views.list_category, name='list_categories'),
 
     ## edit
     path('snippets/<int:pk>/edit/',
