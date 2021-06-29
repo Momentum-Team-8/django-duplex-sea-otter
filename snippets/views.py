@@ -68,5 +68,15 @@ def toggle_favorite(request, snippet_pk):
         snippet.favorited_by.remove(user)
     else:
         snippet.favorited_by.add(user)
+        
+
 
     return redirect("show_snippet", pk=snippet_pk)
+
+
+def list_favorites(request): 
+    user = request.user
+    favos= user.fav_snippets.all()
+    return render(request, "snippets/favList_snippet.html",
+    {"favos": favos})
+

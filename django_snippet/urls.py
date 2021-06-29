@@ -25,6 +25,7 @@ from snippets import views as snippets_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', snippets_views.list_snippets, name='list_snippets'),
+    path('favorites/', snippets_views.list_favorites, name='list_favorites'),
     path("accounts/", include("registration.backends.simple.urls")),
     ## add 
     path('snippets/snippet/add/', snippets_views.add_snippet, name='add_snippet'),
