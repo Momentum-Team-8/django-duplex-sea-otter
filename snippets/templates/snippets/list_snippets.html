@@ -12,7 +12,7 @@
         <p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{snippet.title}}</a></p>
         <p>{{snippet.author}}</p>
         <p>{{snippet.language}}</p>
-        <pre><code class="language-html">
+        <pre><code id="details">
         {{snippet.description}}
         </code></pre>
         <p>{{snippet.created_at}}</p>

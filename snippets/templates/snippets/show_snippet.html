@@ -8,7 +8,9 @@
 <div>
   <p>{{ snippet.title }}</p>
   <p>{{ snippet.author }}</p>
-  <p id="details">{{ snippet.description}}</p>
+  <pre><code id="details">
+        {{snippet.description}}
+        </code></pre>
   <p>{{ snippet.created_at}}</p>
   <button class = "copy-btn">click</button>
 </div>
