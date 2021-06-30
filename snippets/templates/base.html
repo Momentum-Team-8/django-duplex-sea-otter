@@ -13,18 +13,10 @@
     <script>hljs.highlightAll();</script>
     <script src={% static 'main.js' %}  defer></script>
 
-  <title>Snippets</title>
+  <title>SnippetWorks</title>
 </head>
 <body>
-  <h1>All Snippets</h1>
-  <nav>
-    <div>
-      {% if user.is_authenticated %}
-      <p>Hello, {{ user.username }}!</p>
-      <a href="{% url 'auth_logout' %}">Logout</a>
-      {% else %}
-      <a href="{% url 'auth_login' %}">Login</a>
-      {% endif %}
+  
     </div>
   </nav>
 <!-- Sidebar starts -->
@@ -37,6 +29,30 @@
     <a href="#">Profile</a>
   </div>
   
+<!-- Topbar starts -->
+<div class="topnav" id="myTopnav">
+ <h1>SnippetWorks</h1>
+{% if user.is_authenticated %}
+      <p>You are logged in as, {{ user.username }}!</p>
+      <a href="{% url 'auth_logout' %}">Logout</a>
+      {% else %}
+      <a href="{% url 'auth_login' %}">Login</a>
+      {% endif %} 
+  <a href="{% url 'list_snippets' %}" class="myTopnav">Home</a>
+  <a href="#contact">Contact</a>
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<!-- Topbar ends -->
+<div style="padding-left:16px">
+  <h2>Responsive Topnav Example</h2>
+  <p>Resize the browser window to see how it works.</p>
+</div>
+
+
+
   <div id="main">
     <button class="openbtn" onclick="openNav()">☰ SnippetWorks</button>  
   </div>
