@@ -27,7 +27,7 @@ urlpatterns = [
     path('', snippets_views.list_snippets, name='list_snippets'),
     path('favorites/', snippets_views.list_favorites, name='list_favorites'),
     path("accounts/", include("registration.backends.simple.urls")),
-    ## add 
+    # add
     path('snippets/snippet/add/', snippets_views.add_snippet, name='add_snippet'),
     path("snippets/<int:pk>", snippets_views.show_snippet, name="show_snippet"),
     path(
@@ -35,16 +35,17 @@ urlpatterns = [
         snippets_views.toggle_favorite,
         name="toggle_favorite",
     ),
-    path("categ/<slug:slug>",snippets_views.show_categ, name="show_categ"),
+    path("categ/<slug:slug>", snippets_views.show_categ, name="show_categ"),
     path('categories/', snippets_views.list_category, name='list_categories'),
+    path('snippets/snippets/profile', snippets_views.profile, name="profile"),
 
-    ## edit
+    # edit
     path('snippets/<int:pk>/edit/',
          snippets_views.edit_snippet, name='edit_snippet'),
-  
-   path('collection/<int:pk>/delete',
+
+    path('collection/<int:pk>/delete',
          snippets_views.delete_snippets, name='delete_snippets'),
 
     path('search_bar/', snippets_views.search_bar, name='search_bar'),
 
-]+ static(settings.STATIC_URL, docuement_root=settings.STATIC_ROOT )
+] + static(settings.STATIC_URL, docuement_root=settings.STATIC_ROOT)

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="heading-text">My Profile</h1>
+
+<section class="add-snippet">
+    <a href={% url 'add_snippet' %} class="">+ Create a new snippet</a>
+</section>
+
+{% for snippet in snippets %}
+<article>
+  <div class=card>
+    <h2>
+        <a href={% url 'show_snippet' pk=snippet.pk %}>{{ snippet.title }}</a>
+    </h2>
+    <h3>{{ snippet.author }}</h3>
+    <p>{{ snippet.language }}</p>
+    <p>Description: {{ snippet.description }}</p>
+  </div>
+</article>
+
+<a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
+<a href={% url 'delete_snippets' pk=snippet.pk%}>Delete </a>
+
+{% endfor %}
+
+{% endblock %}

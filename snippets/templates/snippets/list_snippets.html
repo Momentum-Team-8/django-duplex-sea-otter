@@ -20,8 +20,7 @@
         </code></pre>
         <p>{{snippet.created_at}}</p>
        
-        <a href={% url 'edit_snippet' pk=snippet.pk %}>Edit</a>
-        <a href={% url 'delete_snippets' pk=snippet.pk %}>Delete</a>
+
     </div>
     <div>
         {% for each in snippet.category.all %}
