@@ -23,7 +23,7 @@
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="{% url 'list_snippets' %}">Home</a>
+  <a href="{% url 'list_snippets' %}"><i class="fas fa-igloo"></i>Home</a>
   <a href="{% url 'list_categories' %}">Categories</a>
   <a href="{% url 'list_favorites' %}">Favorites</a>
   <a href="{% url 'profile' %}">Profile</a>
@@ -31,16 +31,16 @@
 
 <!-- Topbar starts -->
 <div class="topnav" id="myTopnav">
-<h1>SnippetWorks</h1>
+  <h1>SnippetWorks</h1>
 {% if user.is_authenticated %}
     <p>You are logged in as, {{ user.username }}!</p>
     <a href="{% url 'auth_logout' %}">Logout</a>
     {% else %}
     <a href="{% url 'auth_login' %}">Login</a>
     {% endif %} 
-<a href="{% url 'list_snippets' %}" class="myTopnav">Home</a>
-<a href="{% url 'list_favorites' %}">Favorites</a>
-<form action="{% url 'search_bar' %}" method="get">
+  <a href="{% url 'list_snippets' %}" class="myTopnav">Home</a>
+  <a href="{% url 'list_favorites' %}">Favorites</a>
+  <form action="{% url 'search_bar' %}" method="get">
   <input type="text" name="search"/>
   <button type="submit">Search</button>
 </form>

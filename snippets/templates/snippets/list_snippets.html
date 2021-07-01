@@ -5,11 +5,7 @@
     <a href="{% url 'add_snippet' %}">Add New Snippet</a>
     <br>
     <br>
-    <a href="{% url 'list_favorites' %}">Your Favorite Snippets</a>
-    <br>
-    <br>
     <a href="{% url 'list_categories' %}">Categories</a>
-
     {% for snippet in snippets %}
     <div class="snippet">
         <p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{snippet.title}}</a></p>
@@ -30,11 +26,8 @@
     {% endfor %}
 </section>
 
-
-<div class="back-button">
-    <a href={% url "list_snippets" %}>Back To All Snippets</a>
-</div>
-</center>
+<br>
+<section class="back-button">
+<a href={% url "list_snippets" %}>Back To All Snippets</a>
+</section>
 {% endblock content %}
-
-<a href={% url 'add_snippet' %}>Add a new Snippet</a> 

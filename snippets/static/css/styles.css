@@ -1,8 +1,3 @@
-body {
-    font-family: "Oswald", Open Sans;
-    font-size: 18px;
-  }
-  
   .sidebar {
     height: 100%;
     width: 0;
@@ -20,10 +15,11 @@ body {
   .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
     color:black;
     display: block;
     transition: 0.3s;
+    font-weight: bold;
   }
   
   .sidebar a:hover {
@@ -40,12 +36,13 @@ body {
   }
   
   .openbtn {
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     background-color: #00AFB9;
-    color:#FDFCDC;
+    color:black;
     padding: 10px 15px;
     border: none;
+    font-weight: bold;
   }
   .sidebar a:hover:not(.active) {
     background-color: #F07167;
@@ -80,22 +77,24 @@ body {
   .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 26px;
     background-color: #00AFB9;
+    font-weight: bold;
   }
   
   .topnav a:hover {
-    background-color: #ddd;
-    color :#FDFCDC;
+    background-color: #F07167;
+    color: #FDFCDC;
+    background-color: #F07167;
   }
   
   .topnav a.active {
-    background-color: ;
-    color: black;
+    background-color: #F07167;
+    color: #f2f2f2;
   }
   
   .topnav .icon {
@@ -124,3 +123,27 @@ body {
     }
   }
   /* Topbar ends */
+
+  h1 {
+    font-family: "Oswald", Open Sans;
+    font-size: 36px;  
+    margin: 20px;
+  }
+
+  body {
+    font-family: "Oswald", Open Sans;
+    font-size: 30px;  
+    margin: 20px;
+  }
+
+  div {
+    margin: 20px;
+    font-family: "Oswald", Open Sans;
+    font-size: 24px;
+  }
+  
+  p {
+    margin: 20px;
+    font-family: "Oswald", Open Sans;
+    font-size: 24px;
+  }
