@@ -8,19 +8,24 @@
 </section>
 
 {% for snippet in snippets %}
-<article>
-  <div class=card>
-    <h2>
-        <a href={% url 'show_snippet' pk=snippet.pk %}>{{ snippet.title }}</a>
-    </h2>
-    <h3>{{ snippet.author }}</h3>
-    <p>{{ snippet.language }}</p>
-    <p>Description: {{ snippet.description }}</p>
-  </div>
-</article>
+<div class="snippet mv4 pa5 br1 ba b--light-silver">
+  <article>
+    <div class=card>
+      <h2>
+          <a href={% url 'show_snippet' 
+          pk=snippet.pk class="snippet_title f3 fw6 db dark-pink no-underline underline-hover"%} >{{ snippet.title }}</a>
+      </h2>
+      <h3 class ="f5 gray">author: {{ snippet.author }}</h3>
+      <p class ="f5 gray">language: {{ snippet.language }}</p>
+      <pre><code id="details" class ="f5">
+        Description: {{snippet.description}}
+      </code></pre>
+    </div>
+  </article>
 
-<a href={% url 'edit_snippet' pk=snippet.pk%}>Edit</a>
-<a href={% url 'delete_snippets' pk=snippet.pk%}>Delete </a>
+  <a href={% url 'edit_snippet' pk=snippet.pk%}><i class="fa fa-edit ph2 pink"></i>Edit</a>
+  <a href={% url 'delete_snippets' pk=snippet.pk%}><i class="fa fa-times ph2 pink"></i>Delete </a>
+</div>
 
 {% endfor %}
 
