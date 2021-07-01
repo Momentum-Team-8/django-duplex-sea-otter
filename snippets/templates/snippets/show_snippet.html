@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Snippet Detail</h2>
+
+<a href={% url 'list_snippets' %}>Back to all snippets</a>
+<div class="ma5 pa2 f6 lh-copy ba b--light-silver br2">
+  <p class="snippet_title f3 fw6 db dark-pink">{{ snippet.title }}</p>
+  <p class="f5 gray">author: {{ snippet.author }}</p>
+  <pre><code id="details">
+        {{snippet.description}}
+        </code></pre>
+  <p class="f8 gray">{{ snippet.created_at}}</p>
+  <button class = "copy-btn">click</button>
+  <br>
+  <br>
+        <form action="{%url 'toggle_favorite' snippet.pk %}" 
+        method = "POST">
+                {% csrf_token %}
+                {% if snippet in user.fav_snippets.all %}
+                        <button type= "submit", name = "snippet_id", value = {{snippet.id}}>Liked
+                        </button> - {{ snippet.favorited_by.count }} Likes
+                {% else %}
+                        <button type= "submit", name = "snippet_id", value = {{snippet.id}}>Like
+                        </button> - {{ snippet.favorited_by.count}} Likes
+                {% endif %}
+        </form>
+</div>        
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="snippet-list">
+    <a href="{% url 'add_snippet' %}" class="db dark-pink link dim"><i class="fa fa-plus ph2"></i>add a new snippet</a>
+    <br>
+    <br>
+    <a href="{% url 'list_categories' %}">Categories</a>
+    {% for snippet in snippets %}
+    <div class="snippet mv4 pa5 br1 ba b--light-silver">
+        <a href="{% url 'show_snippet' pk=snippet.pk %}" class="snippet_title f3 fw6 db dark-pink no-underline underline-hover">
+            {{snippet.title}}</a>
+        <p>author: {{snippet.author}}</p>
+        <p class = "f6">language: {{snippet.language}}</p>
+        <pre><code id="details" class ="f5">
+        {{snippet.description}}
+        </code></pre>
+        <p class = "f6">{{snippet.created_at}}</p>
+        {% for each in snippet.category.all %}
+            <a href="{% url 'show_categ' slug=each.slug %}" class="b--silver bg-light-gray pa2 mv2 br-pill">{{each.category_name}}</a>
+            {% endfor %}
+    </div>
+    {% endfor %}
+</section>
+
+<br>
+<section class="back-button">
+<a href={% url "list_snippets" %}>Back To All Snippets</a>
+</section>
+{% endblock content %}

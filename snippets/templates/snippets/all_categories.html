@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="snippet-list">
+    <div class="back-button">
+        <a href={% url "list_snippets" %}>Back To All Snippets</a>
+    </div>
+    
+    <h1>Categories</h1>
+    {% for category in all_categories %}
+    <div class="snippet">
+        <p><a href="{% url 'show_categ' category.slug %}" class='bg-light-gray pa1 br-pill mv1'>{{category.category_name}} - {{category.snippets.count}}</a></p>
+    </div>
+    {% endfor %}
+</section>
+
+
+{% endblock content %}

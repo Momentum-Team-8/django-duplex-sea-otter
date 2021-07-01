@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="back-button">
+    <a href={% url "list_snippets" %}>Back To All Snippets</a>
+</div>
+
+<h1> {{ categ.name }} </h1>
+{% for snippet in snippets  %}
+<p><a href="{% url 'show_snippet' pk=snippet.pk %}">{{ snippet.title }}</a></p>
+{% endfor %}
+
+{% endblock content %}
